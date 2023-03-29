@@ -52,3 +52,6 @@ you can just fill [./src/content/gig](./src/content/gig) with some .md snippets 
 They will be loaded in [src/pages/index.astro](src/pages/index.astro) and put into the model.
 
 The webcomponent that does it all is under [src/wc/iterm-command-line](src/wc/iterm-command-line).
+
+If you want the `contact` command to work, you need to set up an `.env` with a variable `VITE_SLACK` that contains the custom part
+of the webhook path.
