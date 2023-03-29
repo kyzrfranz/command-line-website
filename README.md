@@ -50,3 +50,5 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 # Personalize
 you can just fill [./src/content/gig](./src/content/gig) with some .md snippets of your own.
 They will be loaded in [src/pages/index.astro](src/pages/index.astro) and put into the model.
+
+The webcomponent that does it all is under [src/wc/iterm-command-line](src/wc/iterm-command-line).
