@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 src/drawer-button
 src/iterm-box
+
+.idea
+.vscode
