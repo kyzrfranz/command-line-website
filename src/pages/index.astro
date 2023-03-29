@@ -36,9 +36,9 @@ if (Astro.request.method === "POST") {
         import {Engineer} from "../models/Engineer";
         import {getCollection} from "astro:content";
         const allGigs = await getCollection('gig');
-        const e = new Engineer("thomas", allGigs)
+        const e = new Engineer("thomas", allGigs) //engineer comes setup with some commands
         const terminal = document.querySelector('iterm-command-line');
-        terminal.commands = e.commands
+        terminal.commands = e.commands //stick the commands into the webcomponent
     </script>
     <iterm-command-line id="terminal"
                         greeting="Welcome to the DYOR website of a very lazy person!\nHey, my name is Thomas and I'm a Software / Cloud Engineer for hire"></iterm-command-line>

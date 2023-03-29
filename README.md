@@ -45,3 +45,8 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+
+# Personalize
+you can just fill [./src/content/gig](./src/content/gig) with some .md snippets of your own.
+They will be loaded in [src/pages/index.astro](src/pages/index.astro) and put into the model.
