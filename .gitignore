@@ -20,8 +20,8 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-src/drawer-button
-src/iterm-box
+src/wc/drawer-button
+src/wc/iterm-box
 
 .idea
 .vscode
