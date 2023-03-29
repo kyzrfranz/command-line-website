@@ -24,15 +24,43 @@ export class Engineer {
         return list
     }
 
-    showProject(title) {
-        if (!title) {
-            return "nope"
+    showProject(arg) {
+        if (!arg) {
+            return "no title provided"
         }
-        const gig = this._gigs.find(item => item.data.title == title)
+        console.log(arg)
+        console.log(this._gigs)
+        const gig = this._gigs.find(item => item.data.title.toLowerCase() == arg.toLowerCase())
         if (!gig) {
-            return `${title} not found`
+            return `project '${arg}' not found`
         }
-        return `${gig.data.title}: ${gig.data.role}`
+
+        const {
+            title,
+            role,
+            description,
+            startDate,
+            endDate,
+            highlightTech,
+            tech
+        } = gig.data;
+
+        const output = `
+# ${title}
+## ${role}
+${description}
+
+Start Date: ${startDate.toLocaleDateString()}
+End Date: ${endDate.toLocaleDateString()}
+
+Major Technologies:
+${highlightTech.map((tech) => `${tech}`).join(', ')}
+
+Other Technologies:
+${tech.map((tech) => `${tech}`).join(', ')}
+`;
+
+        return output;
     }
 
     submit(msg) {
