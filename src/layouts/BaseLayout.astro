@@ -1,0 +1,25 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import {SITE_TITLE, SITE_DESCRIPTION} from "../config.js";
+const {image, title = SITE_TITLE, description = SITE_DESCRIPTION} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="lofi">
+<head>
+    <script>
+        import 'lit/experimental-hydrate-support.js';
+        import '../wc/iterm-command-line/ItermCommandLine.js'
+    </script>
+    <BaseHead title={title} description={description} image={image}/>
+</head>
+<body>
+<div>
+    <div>
+        <main>
+            <slot/>
+        </main>
+    </div>
+</div>
+</body>
+</html>

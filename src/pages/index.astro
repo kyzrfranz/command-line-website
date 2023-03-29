@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+if (Astro.request.method === "POST") {
+    try {
+        const slackUrl = `https://hooks.slack.com/services/${import.meta.env.VITE_SLACK}`
+
+        const data = await Astro.request.json();
+        const text = data.message;
+
+        fetch(slackUrl, {
+            method: 'POST',
+            body: JSON.stringify({text: text}),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                console.log('Email sent successfully!');
+            } else {
+                console.error('Failed to send email!');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(error.message);
+        }
+    }
+}
+---
+<BaseLayout>
+    <script>
+        import {Engineer} from "../models/Engineer";
+        import {getCollection} from "astro:content";
+        const allGigs = await getCollection('gig');
+        const e = new Engineer("thomas", allGigs)
+        const terminal = document.querySelector('iterm-command-line');
+        terminal.commands = e.commands
+    </script>
+    <iterm-command-line id="terminal"
+                        greeting="Welcome to the DYOR website of a very lazy person!\nHey, my name is Thomas and I'm a Software / Cloud Engineer for hire"></iterm-command-line>
+    <style>
+        iterm-command-line {
+            height: 100vh;
+        }
+
+    </style>
+</BaseLayout>
